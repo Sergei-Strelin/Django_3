@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ title }} | {{ block.super }}{% endblock %}
+{% block h1 %}
+    <h1>Контакты магазина</h1>
+{% endblock h1 %}
+{% block main %}
+    <div>
+        Планируется форма обратной связи
+    </div>
+    <div>
+        <small>
+            <address>
+                <a href="mailto:admin@valet.of.by">admin@strelin.of.by</a><br>
+                <a href="tel:+372955552368">+375(29) 555-2368</a>
+            </address>
+
+        </small>
+        <h2><b> Все клиенты: </b></h2>
+
+
+
+        {% for client in clients %}
+
+            <ul>
+                <li><b>Клиент: </b> <br>
+                    <hr>
+                    {{ client.name | capfirst }}</li>
+                <li>email: <br> {{ client.email }}</li>
+                <li>Телефон: <br> {{ client.phone }}</li>
+                <li>Адрес: <br> {{ client.address }}</li>
+                <li>Дата добавления: <br> {{ client.date }}</li>
+            </ul>
+        {% endfor %}
+
+    </div>
+{% endblock %}

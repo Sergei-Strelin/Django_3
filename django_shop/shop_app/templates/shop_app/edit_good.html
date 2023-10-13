@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Каталог | {{ block.super }}{% endblock %}
+{% block h1 %}
+    Редактирование товара: <b>{{ good.name }}</b>:
+{% endblock h1 %}
+{% block main %}
+
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    {% if img_obj %}
+        <h3>Успешно загружен : {{ img_obj.title }}</h3>
+        <img src="{{ img_obj.image.url }}" alt="connect" style="max-height:300px">
+    {% endif %}
+{% endblock main %}
